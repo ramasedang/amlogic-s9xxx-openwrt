@@ -19,7 +19,7 @@
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 
 # Correct translation for Transmission
-sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
+##sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
 
 # Uniform name for network
 sed -i "1i sed -i 's/ifname/device/g' /etc/config/network" package/base-files/files/etc/rc.local
@@ -30,8 +30,8 @@ sed -i "1i sed -i 's/ifname/device/g' /etc/config/network" package/base-files/fi
 # ------------------------------- Lienol started -------------------------------
 #
 # Add branches package from Lienol/openwrt/branches/21.02/package and Remove duplicate packages
-svn co https://github.com/Lienol/openwrt/branches/21.02/package/{lean,default-settings} package
-rm -rf package/lean/{luci-app-frpc,luci-app-frps,libtorrent-rasterbar} 2>/dev/null
+###svn co https://github.com/Lienol/openwrt/branches/21.02/package/{lean,default-settings} package
+###rm -rf package/lean/{luci-app-frpc,luci-app-frps,libtorrent-rasterbar} 2>/dev/null
 
 # Add firewall rules
 zzz_iptables_row=$(sed -n '/iptables/=' package/default-settings/files/zzz-default-settings | head -n 1)
@@ -49,7 +49,7 @@ sed -i 's/luci.main.lang=zh_cn/luci.main.lang=auto/g' package/default-settings/f
 #sed -i 's/timezone=CST-8/timezone=CST-9/g' package/default-settings/files/zzz-default-settings
 
 # Add autocore support for armvirt
-sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
+###sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/autocore/Makefile
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
@@ -82,15 +82,15 @@ svn co https://github.com/fw876/helloworld/trunk/{luci-app-ssr-plus,shadowsocksr
 rm -rf package/openwrt-ssrplus/luci-app-ssr-plus/po/zh_Hans 2>/dev/null
 
 # Add luci-app-rclone
-svn co https://github.com/ElonH/Rclone-OpenWrt/trunk package/openWrt-rclone
+###svn co https://github.com/ElonH/Rclone-OpenWrt/trunk package/openWrt-rclone
 
 # Add luci-app-diskman
-svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/openwrt-diskman/luci-app-diskman
-wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -q -P package/openwrt-diskman/parted
-pushd package/openwrt-diskman/parted && mv -f Parted.Makefile Makefile 2>/dev/null && popd
+###svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/openwrt-diskman/luci-app-diskman
+###wget https://raw.githubusercontent.com/lisaac/luci-app-diskman/master/Parted.Makefile -q -P package/openwrt-diskman/parted
+###pushd package/openwrt-diskman/parted && mv -f Parted.Makefile Makefile 2>/dev/null && popd
 
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+###svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Apply patch
 # git apply ../router-config/patches/{0001*,0002*}.patch --directory=feeds/luci
