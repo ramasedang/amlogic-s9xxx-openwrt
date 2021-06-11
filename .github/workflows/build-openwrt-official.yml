@@ -23,7 +23,7 @@ on:
     #- cron: '0 17 * * *'
 
 env:
-  REPO_URL: https://github.com/poetraeble5/lede.git
+  REPO_URL: https://github.com/Consul-iT/lede.git
   REPO_BRANCH: master
   FEEDS_CONF: router-config/openwrt-master/feeds.conf.default
   CONFIG_FILE: router-config/openwrt-master/.config
