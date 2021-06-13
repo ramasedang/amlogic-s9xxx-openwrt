@@ -69,6 +69,7 @@ sed -i 's/luci.main.lang=zh_cn/luci.main.lang=auto/g' package/default-settings/f
 
 # ------------------------------- Other started -------------------------------
 #
+svn co https://github.com/garypang13/luci-app-bypass.git package/luci-app-bypass
 # Add luci-app-passwall
 ##svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 ##rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
